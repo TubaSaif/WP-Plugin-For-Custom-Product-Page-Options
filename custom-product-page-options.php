@@ -6,7 +6,6 @@ Version: 1.0
 Author: Tuba Saif
 */
 
-// Add admin menu for plugin settings
 add_action('admin_menu', 'custom_product_page_options_menu');
 function custom_product_page_options_menu() {
     add_menu_page(
@@ -18,14 +17,13 @@ function custom_product_page_options_menu() {
     );
 }
 
-// Callback function for plugin settings page
 function custom_product_page_options_page() {
     // Check if user has permissions
     if (!current_user_can('manage_options')) {
         return;
     }
 
-    // Check if the form has been submitted
+
     if (isset($_POST['custom_product_page_options_submit'])) {
         // Handle form data here (save options, update settings, etc.)
         update_option('hide_product_ratings', isset($_POST['hide_product_ratings']) ? 1 : 0);
